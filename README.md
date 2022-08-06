@@ -1,1 +1,2 @@
-# Hotel_chekedin_prediction
+# Insurance_Premium_Prediction
+Insurance_Premium_Prediction
