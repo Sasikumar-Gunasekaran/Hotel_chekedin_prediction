@@ -65,3 +65,5 @@ jsonify==0.5
 requests==2.24.0
 gunicorn 
 werkzeug==2.0.3
+flasgger
+streamlit
