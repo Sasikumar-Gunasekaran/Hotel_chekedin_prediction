@@ -5,6 +5,8 @@ import pickle
 import numpy as np
 import sklearn
 import pandas as pd
+from xgboost import XGBClassifier
+
 #import tensorflow as tf
 #import keras
 #from keras.models import load_model
