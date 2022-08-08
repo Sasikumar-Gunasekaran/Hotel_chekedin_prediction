@@ -5,9 +5,9 @@ import pickle
 import numpy as np
 import sklearn
 import pandas as pd
-import tensorflow as tf
-import keras
-from keras.models import load_model
+#import tensorflow as tf
+#import keras
+#from keras.models import load_model
 
 
 app = Flask(__name__)
