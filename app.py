@@ -27,12 +27,12 @@ def Home():
 
 
 @app.route("/predict", methods = ["GET", "POST"])
+
 def predict():
     
-    if request.method == 'POST':
+   
       Age=float(request.form['Age'])
       DaysSinceCreation=float(request.form['DaysSinceCreation'])
-
       AverageLeadTime = float(request.form['AverageLeadTime'])
       LodgingRevenue = float(request.form['LodgingRevenue'])
       OtherRevenue    = float(request.form['OtherRevenue'])
@@ -78,21 +78,15 @@ def predict():
       SRAwayFromElevator = float(request.form['SRAwayFromElevator'])
       SRNoAlcoholInMiniBar    = float(request.form['SRNoAlcoholInMiniBar'])
       SRQuietRoom = float(request.form['SRQuietRoom'])       
-      prediction = model.predict(
-       	[[Age, DaysSinceCreation, AverageLeadTime, LodgingRevenue,
-           OtherRevenue,BookingsCanceled,BookingsNoShowed,
-           BookingsCheckedIn,PersonsNights,RoomNights,
-            DistributionChannel,MarketSegment, SRHighFloor, SRLowFloor,
-            SRAccessibleRoom, SRMediumFloor, SRBathtub, SRShower, SRCrib,
-            SRKingSizeBed, SRTwinBed, SRNearElevator, SRAwayFromElevator,
-            SRNoAlcoholInMiniBar, SRQuietRoom]])
-      Output=prediction 
-    if Output == 0:
-            return render_template('index.html', prediction_text= "Sorry client wont checkedin [0]" )
-    else :
-            return render_template('index.html', prediction_text= " The client Will Be CheckedIn [1]" )
-   
-
+      pred = model.predict(
+       	[[Age, DaysSinceCreation, AverageLeadTime, LodgingRevenue,OtherRevenue,BookingsCanceled,BookingsNoShowed,BookingsCheckedIn,PersonsNights,
+          RoomNights,DistributionChannel,MarketSegment, SRHighFloor, SRLowFloor,SRAccessibleRoom, SRMediumFloor, SRBathtub, SRShower, SRCrib,
+          SRKingSizeBed, SRTwinBed, SRNearElevator, SRAwayFromElevator,SRNoAlcoholInMiniBar, SRQuietRoom]])
+      output =pred
+      if output == 0:
+         return render_template('index.html', prediction_text="Sorry client wont checkedin{}".format(output))
+      else:
+         return render_template('index.html',prediction_text="The client will checked")   
 
 if __name__ == "__main__":
      app.run(debug=True)
