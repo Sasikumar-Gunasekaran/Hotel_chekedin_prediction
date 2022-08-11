@@ -8,7 +8,7 @@ import pandas as pd
 from xgboost import XGBClassifier
 
 #import tensorflow as tf
-#import keras
+#import keras   
 #from keras.models import load_model
 
 
@@ -36,11 +36,11 @@ def predict():
       AverageLeadTime = float(request.form['AverageLeadTime'])
       LodgingRevenue = float(request.form['LodgingRevenue'])
       OtherRevenue    = float(request.form['OtherRevenue'])
-      BookingsCanceled = int(request.form['BookingsCanceled'])
-      BookingsNoShowed = int(request.form['BookingsNoShowed'])
-      BookingsCheckedIn    = int(request.form['BookingsCheckedIn'])
-      PersonsNights = int(request.form['PersonsNights'])
-      RoomNights = int(request.form['RoomNights'])
+      BookingsCanceled = float(request.form['BookingsCanceled'])
+      BookingsNoShowed = float(request.form['BookingsNoShowed'])
+      BookingsCheckedIn    = float(request.form['BookingsCheckedIn'])
+      PersonsNights = float(request.form['PersonsNights'])
+      RoomNights = float(request.form['RoomNights'])
       DistributionChannel = request.form['DistributionChannel']
       if (DistributionChannel == 'Corporate'):
           DistributionChannel = 0
@@ -65,20 +65,19 @@ def predict():
            MarketSegment = 5
       else:
            MarketSegment = 6
-      SRHighFloor = int(request.form['SRHighFloor'])
-      SRLowFloor = int(request.form['SRLowFloor'])
-      SRAccessibleRoom    = int(request.form['SRAccessibleRoom'])
-      SRMediumFloor = int(request.form['SRMediumFloor'])
-      SRBathtub = int(request.form['SRBathtub'])
-      SRShower    = int(request.form['SRShower'])
-      SRCrib = int(request.form['SRCrib'])
-      SRLowFloor = int(request.form['SRLowFloor'])
-      SRKingSizeBed    = int(request.form['SRKingSizeBed'])
-      SRTwinBed = int(request.form['SRTwinBed'])
-      SRNearElevator = int(request.form['SRNearElevator'])
-      SRAwayFromElevator = int(request.form['SRAwayFromElevator'])
-      SRNoAlcoholInMiniBar    = int(request.form['SRNoAlcoholInMiniBar'])
-      SRQuietRoom = int(request.form['SRQuietRoom'])       
+      SRHighFloor = float(request.form['SRHighFloor'])
+      SRLowFloor = float(request.form['SRLowFloor'])
+      SRAccessibleRoom    = float(request.form['SRAccessibleRoom'])
+      SRMediumFloor = float(request.form['SRMediumFloor'])
+      SRBathtub = float(request.form['SRBathtub'])
+      SRShower    = float(request.form['SRShower'])
+      SRCrib = float(request.form['SRCrib'])
+      SRKingSizeBed    = float(request.form['SRKingSizeBed'])
+      SRTwinBed = float(request.form['SRTwinBed'])
+      SRNearElevator = float(request.form['SRNearElevator'])
+      SRAwayFromElevator = float(request.form['SRAwayFromElevator'])
+      SRNoAlcoholInMiniBar    = float(request.form['SRNoAlcoholInMiniBar'])
+      SRQuietRoom = float(request.form['SRQuietRoom'])       
       prediction = model.predict(
        	[[Age, DaysSinceCreation, AverageLeadTime, LodgingRevenue,
            OtherRevenue,BookingsCanceled,BookingsNoShowed,
