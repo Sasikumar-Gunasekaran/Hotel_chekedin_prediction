@@ -87,10 +87,10 @@ def predict():
             SRKingSizeBed, SRTwinBed, SRNearElevator, SRAwayFromElevator,
             SRNoAlcoholInMiniBar, SRQuietRoom]])
       Output=prediction 
-      if Output == 0:
-            return render_template('index.html', prediction_texts=" Sorry Wont Checked")
-      else :
-            return render_template('index.html', prediction_text=" Will Be CheckedIn ")
+    if Output == 0:
+            return render_template('index.html', prediction_text= "Sorry client wont checkedin [0]" )
+    else :
+            return render_template('index.html', prediction_text= " The client Will Be CheckedIn [1]" )
    
 
 
